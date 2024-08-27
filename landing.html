@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jeks Community Health Services</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+    }
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    .hero-section {
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://source.unsplash.com/1600x900/?hospital') no-repeat center center;
+      background-size: cover;
+      color: white;
+      padding: 100px 0;
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+    }
+    .features-section {
+      background-color: #f8f9fa;
+      padding: 80px 0;
+    }
+    .feature-item {
+      text-align: center;
+      margin-bottom: 40px;
+      padding: 20px;
+      transition: transform 0.3s ease-in-out;
+    }
+    .feature-item:hover {
+      transform: translateY(-10px);
+    }
+    .feature-item i {
+      font-size: 48px;
+      color: #007bff;
+      margin-bottom: 20px;
+    }
+    .footer-section {
+      background-color: #343a40;
+      color: #ffffff;
+      padding: 30px 0;
+    }
+    .footer-section .nav-link {
+      color: #ffffff;
+      transition: color 0.3s ease-in-out;
+    }
+    .footer-section .nav-link:hover {
+      color: #007bff;
+    }
+    @media (max-width: 768px) {
+      .hero-section {
+        padding: 50px 0;
+      }
+      .hero-section h1 {
+        font-size: 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <section class="hero-section text-center">
+      <div class="container">
+        <h1 class="display-3 mb-4"><strong>JEK COMMUNITY HEALTH SERVICES</strong></h1>
+        <p class="lead mb-5">Providing Quality Healthcare on Busiika Gayaza Zirowe Road</p>
+        <a href="{% url 'login'%}" class="btn btn-lg btn-primary">Get Started</a>
+      </div>
+    </section>
+
+    <section class="features-section">
+      <div class="container">
+        <h2 class="text-center mb-5">Our Services</h2>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="feature-item">
+              <i class="fas fa-user-md"></i>
+              <h3>Patient Management</h3>
+              <p>Efficiently manage patient records, appointments, and medical history.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="feature-item">
+              <i class="fas fa-calendar-alt"></i>
+              <h3>Appointment Scheduling</h3>
+              <p>Seamlessly schedule appointments for patients and doctors.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="feature-item">
+              <i class="fas fa-money-bill-alt"></i>
+              <h3>Billing Management</h3>
+              <p>Handle billing and invoicing with ease, ensuring timely payments.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+            <ul class="nav">
+              <li class="nav-item">
+                <a class="nav-link" href="#">Reception</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Laboratory</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Dentistry</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Maternity</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-4 text-md-right">
+            <p>&copy; 2024 Jek Community Health Services. All rights reserved.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load crispy_forms_tags %}
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jek Health Services - Your Trusted Healthcare Partner</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: rgb(56, 6, 56);
+            --secondary-color: #17a2b8;
+            --accent-color: #ffc107;
+            --text-color: #333;
+            --light-bg: #f8f9fa;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        .navbar {
+            background-color: var(--primary-color);
+            box-shadow: 0 2px 4px rgba(0,0,0,.1);
+        }
+        .navbar-brand, .nav-link {
+            color: white !important;
+            font-weight: 600;
+        }
+        .nav-link:hover {
+            color: var(--accent-color) !important;
+        }
+        .hero-section {
+            background: linear-gradient(rgba(46, 46, 41, 0.6), rgba(29, 27, 27, 0.1)), url('{% static "image/team.png" %}') no-repeat center center;
+            background-size: cover;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: yellow;
+            text-align: center;
+        }
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+        .service-card {
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .service-card img {
+            height: 200px;
+            object-fit: cover;
+        }
+        .testimonial {
+            background-color: var(--light-bg);
+        }
+        .doctor-card {
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        .doctor-card:hover {
+            transform: translateY(-5px);
+        }
+        .doctor-card img {
+            height: 250px;
+            object-fit: cover;
+        }
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 3rem 0;
+        }
+        .footer-heading {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            margin-right: 1rem;
+        }
+        .social-icons a:hover {
+            color: var(--accent-color);
+        }
+        .scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+            background-color: var(--primary-color);
+            color: white;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="{% static 'image/logo.png' %}" alt="Jek Health Services Logo" height="40">
+                Jek Health Services
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'index' %}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'site_services' %}">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#departments">Departments</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#doctors">Doctors</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#news"></a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'news' %}">Testimonials</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#faq">FAQs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section class="bg-warning text-warning mt-5">
+        <div class="container text-center">
+        
+            <p>Y</p>
+        </div>
+    </section>
+    {% comment %} <section class="bg-warning text-warning mt-5">
+        <div class="container text-center">
+        
+            <p>Y</p>
+        </div>
+    </section> {% endcomment %}
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Your Health, Our Priority</h1>
+                <p>Experience world-class healthcare with compassionate professionals</p>
+                <a href="#contact" class="btn btn-primary btn-lg">Book an Appointment</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="py-5" id="about">
+        <div class="container">
+            <h2 class="text-center mb-5">About Us Briefly</h2>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <img src="{% static 'image/doctor1.jpg' %}" class="img-fluid" alt="About Us">
+                </div>
+                <div class="col-md-6">
+                    <p>Jek Health Services is committed to providing exceptional healthcare services to our community. Our team of experienced professionals is dedicated to ensuring the well-being and satisfaction of our patients. With state-of-the-art facilities and a compassionate approach, we strive to deliver the best possible care.</p>
+                    <p>We offer a wide range of medical services and treatments, ensuring that all your healthcare needs are met under one roof. Our mission is to enhance the quality of life for our patients by delivering personalized and comprehensive medical care.</p>
+                </div>
+            </div>
+        </div>
+        <hr>
+    </section>
+
+    <!-- Services Section -->
+    <section class="py-5" id="services">
+        <div class="container">
+            <h2 class="text-center mb-5">Our Services</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card service-card">
+                        <img src="{% static 'image/nurse.jpg' %}" class="card-img-top" alt="Cardiology">
+                        <div class="card-body">
+                            <h5 class="card-title">Guidance and Counselling</h5>
+                            <p class="card-text">Expert care for heart-related issues using cutting-edge technology.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card service-card">
+                        <img src="{% static 'image/dentist2.jpg' %}" class="card-img-top" alt="Pediatrics">
+                        <div class="card-body">
+                            <h5 class="card-title">Dental Care Services</h5>
+                            <p class="card-text">Specialized care for children's health in a friendly environment.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card service-card">
+                        <img src="{% static 'image/labour2.jpg' %}" class="card-img-top" alt="Orthopedics">
+                        <div class="card-body">
+                            <h5 class="card-title">Midwifery Services</h5>
+                            <p class="card-text">Comprehensive treatment for musculoskeletal conditions.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+    </section>
+
+
+    <!-- Latest News Section -->
+    <section class="py-5 bg-light" id="news">
+        <div class="container">
+            
+            <h2 class="text-center mb-5">Quick Updates from Jeks</h2>
+            
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="card service-card">
+                        <img src="{% static 'image/labour2.jpg' %}" class="card-img-top" alt="News 1">
+                        <div class="card-body">
+                            <h5 class="card-title">New Public Labour Ward Opened</h5>
+                            <p class="card-text">We are excited to announce the opening of our new cardiology wing, equipped with the latest technology to provide the best care for our patients.</p>
+                            <a href="#" class="btn btn-primary">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="card service-card">
+                        <img src="{% static 'image/comm.jpeg' %}" class="card-img-top" alt="News 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Community Health Fair</h5>
+                            <p class="card-text">Join us for our annual community health fair where we offer free health screenings, educational sessions, and fun activities for the whole family.</p>
+                            <a href="#" class="btn btn-primary">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+    </section>
+
+    <!-- Departments Section -->
+    <section class="py-5 bg-light" id="departments">
+        <div class="container">
+            <h2 class="text-center mb-5">Our Departments</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card service-card">
+                        <img src="{% static 'image/pharmacy.png' %}" class="card-img-top" alt="General Medicine">
+                        <div class="card-body">
+                            <h5 class="card-title">General Medicine</h5>
+                            <p class="card-text">Comprehensive medical care for a wide range of health conditions.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card service-card">
+                        <img src="{% static 'image/lab1.jpg' %}" class="card-img-top" alt="Gynecology">
+                        <div class="card-body">
+                            <h5 class="card-title">Laboratory</h5>
+                            <p class="card-text">Specialized care for women's health and reproductive system.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card service-card">
+                        <img src="{% static 'image/infusion1.jpg' %}" class="card-img-top" alt="Neurology">
+                        <div class="card-body">
+                            <h5 class="card-title">Infusion</h5>
+                            <p class="card-text">Expert treatment for neurological disorders and conditions.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+    </section>
+
+    <!-- Doctors Section -->
+    <section class="py-5" id="doctors">
+        <div class="container">
+            <h2 class="text-center mb-5">Meet Our Doctors</h2>
+            <div class="row">
+                <div class="col-md-3 mb-4">
+                    <div class="card doctor-card">
+                        <img src="{% static 'image/doctor1.jpg' %}" class="card-img-top" alt="Doctor 1">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Dr. Kazibwe John</h5>
+                            <p class="card-text">Dentist</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card doctor-card">
+                        <img src="{% static 'image/nurse2.jpg' %}" class="card-img-top" alt="Doctor 2">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Dr. Kakajjo Tricia</h5>
+                            <p class="card-text">Pediatrician</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card doctor-card">
+                        <img src="{% static 'image/nurse.jpg' %}" class="card-img-top" alt="Doctor 3">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Dr. Alice Nakayiza</h5>
+                            <p class="card-text">Mid Wife</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card doctor-card">
+                        <img src="{% static 'image/doc6.jpg' %}" class="card-img-top" alt="Doctor 4">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Dr. Michael Byarugaba</h5>
+                            <p class="card-text">Lab Technician</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+    </section>
+
+
+    <!-- Testimonials Section -->
+    <section class="py-5" id="testimonials">
+        <div class="container">
+            <h2 class="text-center mb-5">What Our Patients Say</h2>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="testimonial p-4">
+                        <blockquote class="blockquote">
+                            <p>"The doctors and staff at Jek Health Services were amazing. They took great care of me and made sure I was comfortable during my treatment."</p>
+                        </blockquote>
+                        <footer class="blockquote-footer">Jane Namwanga</footer>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="testimonial p-4">
+                        <blockquote class="blockquote">
+                            <p>"I had a wonderful experience at Jek Health Services. The facilities are top-notch, and the medical team is extremely professional and caring."</p>
+                        </blockquote>
+                        <footer class="blockquote-footer">John Smith Kakondo</footer>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+    </section>
+
+    <!-- FAQs Section -->
+    <section class="py-5 bg-light" id="faq">
+        <div class="container">
+            <h2 class="text-center mb-5">Frequently Asked Questions</h2>
+            <div class="accordion" id="faqAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faq1">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1">
+                            What are your visiting hours?
+                        </button>
+                    </h2>
+                    <div id="collapse1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Our visiting hours are from 9 AM to 9 PM every day. Please check with the specific department for any variations.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faq2">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2">
+                            How can I book an appointment?
+                        </button>
+                    </h2>
+                    <div id="collapse2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            You can book an appointment by calling our reception at (123) 456-7890 or through our website's appointment booking page.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faq3">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3">
+                            Do you accept insurance?
+                        </button>
+                    </h2>
+                    <div id="collapse3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Yes, we accept most major insurance plans. Please contact our billing department for more details.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-5" id="contact">
+        <div class="container">
+            <h2 class="text-center mb-5">Contact Us</h2>
+            {% if messages %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% endif %}
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <form method="post" action="">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+                <div class="col-md-6">
+                    <h5>Address:</h5>
+                    <p>Gayaza-Zirobwe Road, Busiika Town, Near the Round About</p>
+                    <h5>Phone:</h5>
+                    <p>256 741 305 688</p>
+                    <h5>Email:</h5>
+                    <p>info@jekhealthservices.com</p>
+                    <h5>Working Hours:</h5>
+                    <p>Monday - Friday: 8 AM - 8 PM</p>
+                    <p>Saturday - Sunday: 9 AM - 5 PM</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-custom text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <h5>Contact Us</h5>
+                    <p>Email: info.jekhospital@gmail.com</p>
+                    <p>Phone:0776748799, 0772748807</p>
+               </div>
+                <div class="col-md-4 mb-3 mb-md-0">
+                    <h5>Follow Us</h5>
+                    <a href="#" class="me-2"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="me-2"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+                <div class="col-md-4">
+                    <h5>Location</h5>
+                    <p>Busiika, Uganda</p>
+                    <a href="{% url 'login' %}"><i class="fab fa-tachometer-alt"></i></a>
+                </div>
+            </div>
+            <p class="mt-3">&copy; 2024 JEK Hospital Busiika. All rights reserved.</p>
+        </div>
+    </footer>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
